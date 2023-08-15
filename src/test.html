@@ -52,6 +52,39 @@
 
       const b5 = a5.map((n) => n);
       console.log(b5);
+
+      const data = { phone: "2222" };
+      const a6 = {
+        id: 1,
+        name: "홍길동",
+        phone: "1111",
+        age: 17,
+        gender: "남",
+      };
+      const b6 = { ...a6, ...data };
+      console.log(b6);
+
+      const users = [
+        { id: 1, name: "대니얼", phone: "2222" },
+        { id: 2, name: "로빈슨", phone: "3333" },
+        { id: 3, name: "곽두팔", phone: "4444" },
+      ];
+
+      const updateUserDto = {
+        id: 2,
+        name: "빈센트",
+      };
+
+      const newUsers = users.map((user) =>
+        user.id === updateUserDto.id ? { ...user, ...updateUserDto } : user
+      );
+      console.log("newUsers", newUsers);
+
+      // const newUsers = users.filter((user) =>
+      //   user.id === updateUserDto.id ? { ...user, ...updateUserDto } : user
+      // );
+
+      // users[1].name = updateUserDto.name;
     </script>
   </body>
 </html>
