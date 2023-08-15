@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // concat, filter, map, slice, 스프레드 연산자(=전개연산자)
+      // 스프레드란 흩뿌리다라는 뜻 ...a 라고하면 ... 흩뿌린다!
+
+      console.log("1. =================== 스프레드 연산자"); // 배열 복제할때 쓴다.
+      const a = [1, 2, 3];
+      const b = [...a];
+      b.push(4); // b의 데이터 변경
+      console.log(`a의 값은 : ${a}`); // 1, 2, 3
+      console.log(`b의 값은 : ${b}`); // 1, 2, 3, 4
+
+      console.log("2. =================== 추가하기"); // concat은 추가할때 쓴다.
+      const a2 = [1, 2, 3];
+      const b2 = a2.concat(4); // a2에 4가 추가됨
+      console.log(`a2의 값은 : ${a2}`); // 1, 2, 3
+      console.log(`b2의 값은 : ${b2}`); // 1, 2, 3 ,4
+      const c2 = [0, ...a, 4];
+      console.log(`c2의 값은 : ${c2}`); // 1, 2, 3, 4
+
+      console.log("3. =================== 걸러내기"); // filter쓰면된다. -> 필터함수는 true만 걸러낸다.
+      const a3 = [1, 2, 3];
+      const b3 = a3.filter((n) => {
+        return n != 1;
+      }); // boolean을 return 받는다.
+      console.log(`b3의 값은 : ${b3}`); // 2, 3
+      // 필터는 보통 삭제할때 쓴다. 제이쿼리의 리무브같은...
+
+      console.log("4. =================== 잘라내기"); // 잘라내기를 쓰면 스프레드연산자에 삽입을 할 수 있다.
+      const a4 = [1, 2, 3];
+      const b4 = a4.slice(0, 2); // 0, 2하면 직전까지 뽑아냄
+      console.log(b4); // [1, 2]
+      const c4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)];
+      console.log(c4);
+
+      console.log("5. =================== 반복하기"); // map
+      const a5 = [1, 2, 3];
+      // for (let i = 0; i < a5.length; i++) {
+      //   console.log(a5[i]);
+      // }
+
+      // a5.forEach((n) => {
+      //   console.log(n);
+      // }); // 리턴 못함.
+
+      const b5 = a5.map((n) => n);
+      console.log(b5);
+    </script>
+  </body>
+</html>
