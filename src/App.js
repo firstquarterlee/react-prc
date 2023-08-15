@@ -1,22 +1,24 @@
-import "./App.css";
-import Wood from "./wood";
+import React, { useState } from "react";
+import Sub from "./Sub";
 
-// 0. React 엔진 - 데이터변경감지해서 UI그려주는~!
-// 1. 실행과정 (index.html) - 싱글페이지어플리케이션(SPA)
-// 2. JSX 문법
+// let number = 1; // 상태 값 아님
 
-function App() {
-  let list = [1, 2, 3];
+export default function App() {
+  const [number, setNumber] = useState(2); // React안에 hooks 라이브러리가 있다. 그래서 쓸 수 있음. 상태값이 됨.
+  // 랜더링 시점 = 상태값 변경
+
+  const add = () => {
+    setNumber(number + 1); // 리액트한테 number 값 변경할께! 라고 요청하는것이다.
+    console.log("add", number);
+  };
 
   return (
     <div>
-      <div>
-        {list.map((n) => (
-          <h1>{n}</h1>
-        ))}
-      </div>
+      <h1>숫자:{number}</h1>
+      <button onClick={add}>더하기</button>
+      <Sub />
     </div>
   );
 }
 
-export default App;
+// add() 이건 바로 실행한다는거다! 쓰지마셈.
